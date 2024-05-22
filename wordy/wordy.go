@@ -6,8 +6,12 @@ import (
 	"strings"
 )
 
+var operation_re *regexp.Regexp = regexp.MustCompile(`((?:-?\d+ (?:divided by|multiplied by|plus|minus) )+-?\d+\?$)|What is (-?\d+\?)`)
+
 func Answer(question string) (result int, ok bool) {
-	operation_re := regexp.MustCompile(`((?:-?\d+ (?:divided by|multiplied by|plus|minus) )+-?\d+\?$)|What is (-?\d+\?)`)
+
+	// operation_re := regexp.MustCompile(`((?:-?\d+ (?:divided by|multiplied by|plus|minus) )+-?\d+\?$)|What is (-?\d+\?)`)
+
 	operation := operation_re.FindStringSubmatch(question)
 
 	if len(operation) == 0 {
