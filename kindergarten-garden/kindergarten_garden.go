@@ -29,11 +29,11 @@ func NewGarden(diagram string, children []string) (*Garden, error) {
 	rows := strings.Split(diagram, "\n")
 
 	if len(rows) != 3 {
-		return nil, fmt.Errorf("wrong diagram format")
+		return nil, fmt.Errorf("wrong diagram format. expected two rows of plants")
 	}
 
 	if len(rows[1]) != len(rows[2]) {
-		return nil, fmt.Errorf("mismatch between number of plants in each row. plants in row 1: %d, plants in row 2: %d", len(rows[1]), len(rows[2]))
+		return nil, fmt.Errorf("mismatch between number of plants in each row. cups in row 1: %d, cups in row 2: %d", len(rows[1]), len(rows[2]))
 	}
 
 	if len(rows[1])%2 != 0 {
