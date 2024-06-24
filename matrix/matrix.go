@@ -37,7 +37,7 @@ func New(s string) (Matrix, error) {
 func (m Matrix) Cols() [][]int {
 	cols := make(Matrix, len(m[0]))
 	for _, row := range m {
-		for i := range row { // for every row we add to the column i
+		for i := range row { // for every row we add to the row[i] to column[i]
 			cols[i] = append(cols[i], row[i])
 		}
 	}
